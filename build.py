@@ -86,17 +86,11 @@ def main():
         # Optimize
         '--strip',  # Strip symbols
         '--noupx',  # Don't use UPX (avoid antivirus false positives)
-
-        # Metadata
-        '--version-file', 'version_info.txt' if os.path.exists('version_info.txt') else None,
-        '--product-name', 'Eyes字幕提取工具',
-        '--product-version', '1.0.0',
-        '--file-version', '1.0.0',
-        '--copyright', 'Copyright (c) 2025',
     ]
 
-    # Remove None values from arguments
-    pyinstaller_args = [arg for arg in pyinstaller_args if arg is not None]
+    # Add version file if exists
+    if os.path.exists('version_info.txt'):
+        pyinstaller_args.extend(['--version-file', 'version_info.txt'])
 
     # Add icon if exists
     if icon_option:
