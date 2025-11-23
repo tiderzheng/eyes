@@ -116,7 +116,7 @@ def main():
         PyInstaller.__main__.run(pyinstaller_args)
 
         print("\n" + "=" * 60)
-        print("✅ 打包成功！")
+        print("[OK] 打包成功！")
         print("=" * 60)
 
         # Create distribution package
@@ -124,11 +124,11 @@ def main():
 
         # Print final instructions
         print("\n" + "=" * 60)
-        print("📦 分发包位置: dist/")
-        print("📄 可执行文件: dist/Eyes字幕提取工具.exe")
+        print("[INFO] 分发包位置: dist/")
+        print("[FILE] 可执行文件: dist/Eyes字幕提取工具.exe")
         print("=" * 60)
 
-        print("\n⚠️  重要提示：")
+        print("\n[WARNING] 重要提示：")
         print("1. 首次运行前，请先将 .env.example 复制为 .env")
         print("2. 配置 API 信息后才能正常使用")
         print("3. 如果运行报错，请检查是否安装了 Visual C++ Redistributable")
@@ -137,11 +137,11 @@ def main():
         exe_path = os.path.join('dist', 'Eyes字幕提取工具.exe')
         if os.path.exists(exe_path):
             size_mb = os.path.getsize(exe_path) / (1024 * 1024)
-            print(f"\n📊 可执行文件大小: {size_mb:.2f} MB")
+            print(f"\n[INFO] 可执行文件大小: {size_mb:.2f} MB")
 
     except Exception as e:
-        print(f"\n❌ 打包失败: {e}")
-        print("\n💡 排查建议：")
+        print(f"\n[ERROR] 打包失败: {e}")
+        print("\n排查建议：")
         print("1. 确保已安装 PyInstaller: pip install pyinstaller")
         print("2. 确保所有依赖已安装: pip install -r requirements.txt")
         print("3. 尝试手动运行: pyinstaller main.py --name=Eyes字幕提取工具 --onefile --windowed")
