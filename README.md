@@ -202,7 +202,11 @@ video-subtitle-extractor/
 ├── QUICKSTART.md          # 快速上手指南
 ├── GITHUB_SETUP.md        # GitHub 上传指南
 ├── FILE_STRUCTURE.md      # 文件结构说明
+├── BUILD.md               # Windows EXE 打包指南
 ├── CLAUDE.md              # Claude Code 项目说明
+├── build.py               # 自动打包脚本
+├── build.bat              # Windows 打包批处理
+├── version_info.txt       # Windows 版本信息
 ├── api_config_ui.py       # API 配置界面
 ├── config_manager.py      # 配置管理器
 ├── prompt_manager.py      # Prompt 管理器
@@ -235,6 +239,25 @@ A: 程序会自动跳过没有字幕的帧，只输出识别到字幕的片段�
 
 ### Q: 支持哪些视频格式？
 A: 支持常见格式：MP4、MKV、AVI、MOV、WMV、FLV、WebM 等（依赖 OpenCV 支持）
+
+### Q: 如何打包成 Windows 可执行文件（.exe）？
+A: 项目支持使用 PyInstaller 打包成 exe，无需安装 Python 环境即可运行。详细教程请查看 [BUILD.md](BUILD.md)。
+
+**快速步骤**：
+```bash
+# 方法一：双击运行批处理文件
+build.bat
+
+# 方法二：运行 Python 脚本
+python build.py
+
+# 打包完成后在 dist/ 目录找到可执行文件
+```
+
+打包前请确保：
+1. 所有依赖已安装：`pip install -r requirements.txt`
+2. 程序可以正常运行：`python main.py`
+3. 阅读 [BUILD.md](BUILD.md) 了解详细配置
 
 ### Q: 如何提高处理速度？
 A:
